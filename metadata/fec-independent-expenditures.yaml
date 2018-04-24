@@ -1,0 +1,36 @@
+meta:
+  title: Independent expenditures in U.S. 2017-2018 election cycle
+  slug: fec-independent-expendtiures.yaml
+  description: |
+    Expenditures by independent committees supporting or opposing candidates in a U.S. federal election
+  source:
+    name: Federal Election Commission
+    description: |
+      Campaign spending done by campaigns independent of a candidate. This dataset is for the 2018-2018 election cycle (but only through April 2018 partially). Contains all the original verbose redundant fields as downloaded from the FEC's export tool.
+    links:
+      - title: Independent expenditures background page
+        url: https://www.fec.gov/help-candidates-and-committees/making-disbursements-pac/independent-expenditures-nonconnected-pac/
+      - title: Filtered results page
+        url: https://www.fec.gov/data/independent-expenditures/?data_type=processed&cycle=2018&is_notice=true
+
+
+analyses:
+  - title: Spending in Wisconsin Senate race is especially intense
+    description: |
+
+      commandline variation of record count by state:
+
+      cat fec-independent-expenditures.csv \
+        | csvgrep -c candidate_office -m S \
+        | csvcut -c cand_office_state \
+        | sort | uniq -c | sort -rn
+
+
+
+    references:
+        - title: "'Unprecedented' outside spending hits Tammy Baldwin, boosts Kevin Nicholson in US Senate race"
+          url: http://host.madison.com/wsj/news/local/govt-and-politics/unprecedented-outside-spending-hits-tammy-baldwin-boosts-kevin-nicholson-in/article_b57981aa-1f25-5d9c-95d9-1ec727e70d9c.html
+          description: |
+            Outside spending in Wisconsin likely is “unprecedented” for a U.S. Senate campaign, excluding special elections, at this stage, according to Andrew Mayersohn, a researcher for the center.
+
+

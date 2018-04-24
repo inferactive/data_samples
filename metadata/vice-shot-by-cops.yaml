@@ -1,0 +1,24 @@
+meta:
+  title: Police shootings in the U.S.
+  description: |
+    All reported police shootings (fatal and non-fatal) for the 50 largest local police departments.
+  slug: vice-shot-by-cops
+
+  source:
+    name: VICE News
+    links:
+      - title: Github repo
+        url: https://github.com/vicenews/shot-by-cops/
+      - title: Shot by Cops and Forgotten
+        url: https://news.vice.com/en_us/article/xwvv3a/shot-by-cops
+      - title: Direct download
+        url: https://raw.githubusercontent.com/vicenews/shot-by-cops/master/incident_data.csv
+
+analyses:
+  - title: Nearly half the unarmed people shot by police were black
+    description: |
+      Based on VICE's analysis, about 45 percent of suspects found to have been unarme were also black.
+      Some departments did not provide reliable armed status
+
+    references:
+      - url: https://news.vice.com/en_us/article/xwvv3a/shot-by-cops

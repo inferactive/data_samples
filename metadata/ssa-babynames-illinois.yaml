@@ -1,0 +1,75 @@
+meta:
+  title: Baby names for Illinois
+  slug: ssa-babynames-illinois
+  description: |
+    The Social Security Administration has baby name data based on SSA number registrations, with a count by name by year by sex. This dataset is for only the state of Illinois, from 1940 to 2016.
+  caveats: |
+    For privacy reasons, names that have a count fewer than 5 are excluded.
+  source:
+    name: Social Security Administration
+    links:
+      - title: "Landing page: Beyond the Top 100 Names"
+        url: https://www.ssa.gov/oact/babynames/limits.html
+      - title: Direct download for state-specific data
+        url: https://www.ssa.gov/oact/babynames/state/namesbystate.zip
+
+##############################################
+analyses:
+  - title: Gender ratio skew based on SSA history
+    description: |
+      Gender ratio before 1950s should be heavily skewed toward men because only "wage-earning heads of household" were initially eligible.
+    references:
+      - title: Graphing the problematic aspects of the U.S. Baby Names dataset
+        url: http://www.prooffreader.com/2014/07/graphing-problematic-aspects-of-us-baby.html
+
+
+  - title: Diversity of babynames in modern years
+    description: |
+      Baby naming was more homogenous in past decades, e.g. for the state of Illinois, the most popular female name in 1960, "Mary", had 3570 records. In 2016, the most popular female name, "Olivia", had just 770.
+
+      Correspondingly, there were 1171 female names in 1960 (with more than 5 records). In 2016, that number was 1852.
+
+      Another way to look at it: percent of all names represented in the top 100 baby names in a given year.
+    references:
+      - title: "U.S. baby names, 1880-2012: Diversity"
+        url: http://www.prooffreader.com/2014/02/us-baby-names-1880-2012-part-1-diversity.html
+      - title: Beyond the Top 1000 Names
+        url: https://www.ssa.gov/oact/babynames/limits.html
+
+
+  - title: The most hated names
+    description: |
+      Which names have had the biggest negative delta in a decade period?
+    references:
+      - title: 'Hilary: the most poisoned baby name in US history'
+        url: https://hilaryparker.com/2013/01/30/hilary-the-most-poisoned-baby-name-in-us-history/
+
+##########################
+fields:
+  - name: state
+    type: string
+    description: |
+      2-letter abbreviation for U.S. state of application.
+
+  - name: year
+    type: integer
+    description: |
+      Year of application.
+    examples:
+      - 1940
+      - 2016
+
+  - name: name
+    type: string
+    examples:
+      - Mason
+      - Elizabeth
+
+  - name: sex
+    type: string
+    enumerations:
+      - M
+      - F
+
+  - name: count
+    type: integer

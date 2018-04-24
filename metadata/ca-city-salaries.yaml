@@ -1,0 +1,21 @@
+meta:
+  title: California City worker salaries
+  description: |
+    Anonymous public employee salary data for city employees in San Mateo and Santa Clara counties for 2016.
+  slug: ca-city-salaries
+
+  source:
+    name: California State Controller
+    links:
+      - title: Government Compensation in California Homepage
+        url: http://publicpay.ca.gov/
+      - title: Raw data downloads
+        url: http://publicpay.ca.gov/Reports/RawExport.aspx
+
+analyses:
+  - title: Overtime pay vs. regular pay
+    description: |
+      Some public employees can earn far more than their regular pay through overtime pay. This affects some departments more than others.
+    references:
+      - url: https://www.nytimes.com/2017/03/02/us/california-today-police-firefighter-pay.html
+      - url: http://www.oaklandpost.org/2018/03/03/overtime-pay-drives-police-officer-salaries-300000-year/

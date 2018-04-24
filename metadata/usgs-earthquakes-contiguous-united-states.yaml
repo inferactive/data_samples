@@ -1,0 +1,217 @@
+meta:
+  title: M3.0+ Earthquakes in the Contiguous U.S. from2000 to 2015
+  slug: usgs-earthquakes-contiguous-united-states
+  description: |
+    Earthquake events detected by the USGS for a bounding box covering the lower 48 states (i.e. not Alaska or Hawaii) that had a magnitude of at least M3.0, for the years 2000 through 2015.
+  source:
+    name: United States Geological Survey Earthquake Hazards
+    links:
+      - title: Homepage
+        url: http://earthquake.usgs.gov/
+      - title: Search Earthquake Catalog Data
+        url: https://earthquake.usgs.gov/earthquakes/search/
+      - title: Earthquake Catalog Data Terms
+        url: http://earthquake.usgs.gov/earthquakes/feed/v1.0/glossary.php
+
+analyses:
+  title: Sharp increase of M3.0+ quakes annually from 2010 to 2015
+  description: |
+    Because of unusual earthquake activity in historically quiet Oklahoma/Kanasas, the contiguous United States had on average a higher number of annual quakes after 2009.
+  references:
+    - title: Magnitudes for Oklahoma Earthquakes Shift Upward
+      url: https://www.usgs.gov/news/magnitudes-oklahoma-earthquakes-shift-upward
+    - title: Wikipedia entry for 2009–18 Oklahoma earthquake swarms
+      url: https://en.wikipedia.org/wiki/2009%E2%80%9318_Oklahoma_earthquake_swarms
+    - title: The ground has been shaking in Kansas. What's causing these earthquakes?
+      url: http://www.kansas.com/news/state/article204079024.html
+    - title: "Earthquakes in Oklahoma: What we Know"
+      description: "Contains count of M3.0+ quakes in OK state border, by year"
+      url: https://earthquakes.ok.gov/what-we-know/
+    - title: Weather Underground
+      url: https://www.newyorker.com/magazine/2015/04/13/weather-underground
+
+
+fields:
+  - name: time
+    type: datetime
+    description: |
+      Time when the event occurred to the millisecond. Does not include leap seconds.
+    format: "%Y-%m-%dT%H:%M:%S.%fZ"
+    examples:
+      - 1979-12-31T23:42:21.200Z
+
+  - name: latitude
+    type: float
+    length: [10,7]
+
+  - name: longitude
+    type: float
+    length: [10,7]
+
+  - name: depth
+    type: float
+    description: Depth of the event in kilometers.
+
+  - name: mag
+    type: float
+    description: |
+      The magnitude is a number that characterizes the relative size of an earthquake. Magnitude is based on measurement of the maximum motion recorded by a seismograph.
+
+  - name: magType
+    type: String
+    description: The method or algorithm used to calculate the preferred magnitude for the event. The most commonly used are local magnitude (Ml/ml), commonly referred to as "Richter magnitude", surface-wave magnitude (Ms), body-wave magnitude (Mb/mb), and moment magnitude (Mw)
+    examples:
+      - ml
+      - Ml
+      - mb
+      - md
+      - Unknown
+    nulls: true
+
+  - name: nst
+    type: integer
+    length: 5
+    description: "The total number of seismic stations used to determine earthquake location."
+    examples:
+      - 0
+      - 20
+      - 885
+
+  - name: gap
+    type: float
+    length: [4, 1]
+    description: |
+      The largest azimuthal gap between azimuthally adjacent stations (in degrees). In general, the smaller this number, the more reliable is the calculated horizontal position of the earthquake.
+
+  - name: dmin
+    type: float
+    length: [4, 1]
+    description: |
+      Horizontal distance from the epicenter to the nearest station (in degrees). 1 degree is approximately 111.2 kilometers. In general, the smaller this number, the more reliable is the calculated depth of the earthquake.
+
+  - name: rms
+    type: float
+    length: [6, 2]
+    description: |
+      The root-mean-square (RMS) travel time residual, in sec, using all weights. This parameter provides a measure of the fit of the observed arrival times to the predicted arrival times for this location. Smaller numbers reflect a better fit of the data. The value is dependent on the accuracy of the velocity model used to compute the earthquake location, the quality weights assigned to the arrival time data, and the procedure used to locate the earthquake.
+
+  - name: net
+    type: string
+    length: 5
+    description: |
+      The ID of a data contributor. Identifies the network considered to be the preferred source of information for this event.
+    examples:
+      - us
+      - ci
+      - uw
+      - nm
+
+
+  - name: id
+    type: string
+    length: 10
+    description: |
+      A (generally) two-character network identifier with a (generally) eight-character network-assigned code. A unique identifier for the event. This is the current preferred id for the event, and may change over time. See the "ids" GeoJSON format property.
+    examples:
+      - usp000jnek
+      - ak11620427
+
+
+  - name: updated
+    type: datetime
+    description: Time when the event was most recently updated. Times are reported in milliseconds since the epoch.
+    time_format: "%Y-%m-%dT%H:%M:%S.%fZ"
+
+  - name: place
+    type: string
+    description: |
+      Textual description of named geographic region near to the event. This may be a city name, or a Flinn-Engdahl Region name.
+    examples:
+      - "South of the Fiji Islands"
+      - "23km WSW of Willow, Alaska"
+
+  - name: type
+    type: string
+    description: Type of seismic event.
+    examples:
+      - earthquake
+      - quarry blast
+      - explosion
+      - nuclear explosion
+      - sonic boom
+
+  - name: horizontalError
+    type: float
+    length: [6, 3]
+    description: |
+      Uncertainty of reported location of the event in kilometers.
+    examples:
+      - 0.014
+      - 78.35
+      - 103.214
+
+  - name: depthError
+    type: float
+    length: [6, 3]
+    description: |
+      Uncertainty of reported depth of the event in kilometers.
+    examples:
+      - 0.003
+      - 6.636
+      - 397.768
+
+  - name: magError
+    type: float
+    description: Uncertainty of reported magnitude of the event.
+    length: [5,3]
+    examples:
+      - 4.324
+      - 0
+      - 0.339
+
+  - name: magNst
+    type: integer
+    length: 4
+    unsigned: true
+    description: |
+      The total number of seismic stations used to calculate the magnitude for this earthquake.
+    examples:
+      - 0
+      - 78
+      - 414
+
+  - name: status
+    type: string
+    length: 10
+    description: |
+      Indicates whether the event has been reviewed by a human.
+    enumerations:
+      - automatic
+      - reviewed
+      - deleted
+
+
+  - name: locationSource
+    type: string
+    description: |
+      The network that originally authored the reported location of this event.
+    length: 6
+    examples:
+      - ak
+      - nc
+      - ci
+      - us
+      - ismp
+
+
+  - name: magSource
+    type: string
+    length: 6
+    description: |
+      Network that originally authored the reported magnitude for this event.
+    examples:
+      - ak
+      - nc
+      - ci
+      - us
+      - ismp

@@ -1,0 +1,17 @@
+meta:
+  title: U.S. presidental election results by county
+  slug: us-presidential-election-county-results
+  description: |
+    Vote tallies per county per party ("rep" and "dem") for the 2004 and 2008 general U.S. elections.
+
+  source:
+    name: USGS and Data.gov
+    description: |
+      Data as collated by someone from the USGS. No longer available.
+
+
+
+analyses:
+  - title: Which counties flipped parties
+    references:
+      - url: http://www.dailyyonder.com/them-changes-counties-switched-parties-2008/

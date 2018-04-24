@@ -1,0 +1,30 @@
+meta:
+  title: Fatal shootings by U.S. police officers
+  description: |
+    Ongoing collected data of reported officer-involved shootings, as collected by the Washington Post
+  slug: wapo-police-shootings
+
+  source:
+    name: Washington Post
+    links:
+      - title: Github repo
+        url: https://github.com/washingtonpost/data-police-shootings
+      - title: People Shot Dead in 2015
+        url: https://www.washingtonpost.com/graphics/national/police-shootings/
+      - title: Project landing page
+        url: https://www.washingtonpost.com/policeshootings
+      - title: Direct download
+        url: https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv
+
+
+analyses:
+  - title: Unarmed black men are disproportionately killed by police
+    description: |
+      A year after Michael Brown's shooting (2015), unarmed black men are seven times more likely than whites to die by police gunfire.
+
+      According to the WaPo in 2015:
+
+      "However, black men accounted for 40 percent of the 60 unarmed deaths, even though they make up just 6 percent of the U.S. population. The Post's analysis shows that black men were seven times more likely than white men to die by police gunfire while unarmed."
+    references:
+      - title: Black and Unarmed
+        url: http://www.washingtonpost.com/sf/national/2015/08/08/black-and-unarmed/
